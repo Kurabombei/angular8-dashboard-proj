@@ -1,1 +1,24 @@
-<p>projects works!</p>
+
+<h2>My portfolio:</h2>
+
+<ul class="projects">
+  <li *ngFor="let project of projects"
+      [class.selected]="project === selectedProject"
+      (click)="onSelect(project)">
+    <span class="badge">{{project.id}}</span> {{project.name}}
+  </li>
+</ul>
+
+<div *ngIf="selectedProject">
+
+
+  <h2>{{selectedProject.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{selectedProject.id}}</div>
+  <div>
+    <label for="project-name">Hero name: </label>
+    <input id="project-name" [(ngModel)]="selectedProject.name" placeholder="name">
+  </div>
+
+
+</div>
+
